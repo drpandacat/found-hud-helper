@@ -3,7 +3,7 @@
     HUD Helper by BenevolusGoat
     REPENTOGON by John sorrow
     Enjoy
-    Version 1.1
+    Version 1.1.1
 ]]
 
 local PREFIX = "[Found HUD Helper] "
@@ -18,7 +18,7 @@ for _, dependency in ipairs(DEPENDENCIES) do
     end
 end
 
-local VERSION = 1.1
+local VERSION = 2
 
 ---@type table<string, FoundHudElement>
 local CACHED_ELEMENTS = {}
@@ -219,8 +219,8 @@ end
 
 function FoundHUDHelper:GetNumVanillaElements()
     return FoundHUDHelper.NUM_ELEMENTS
-    ---@diagnostic disable-next-line: undefined-field, undefined-global
-    + ((Options.StatHUDPlanetarium or PlanetariumChance) and Isaac.GetPersistentGameData():Unlocked(Achievement.PLANETARIUMS) and 1 or 0)
+    ---@diagnostic disable-next-line: undefined-field
+    + (Options.StatHUDPlanetarium and Isaac.GetPersistentGameData():Unlocked(Achievement.PLANETARIUMS) and 1 or 0)
     + (PlayerManager.AnyoneHasCollectible(CollectibleType.COLLECTIBLE_DUALITY) and 0 or 1)
 end
 
